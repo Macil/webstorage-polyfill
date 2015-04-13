@@ -1,0 +1,25 @@
+{
+  "name": "webstorage-polyfill",
+  "version": "1.0.0",
+  "description": "A browser polyfill for localStorage and sessionStorage",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:AgentME/webstorage-polyfill.git"
+  },
+  "keywords": [
+    "localStorage",
+    "sessionStorage",
+    "webStorage",
+    "polyfill"
+  ],
+  "author": "Chris Cowan <agentme49@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AgentME/webstorage-polyfill/issues"
+  },
+  "homepage": "https://github.com/AgentME/webstorage-polyfill"
+}
