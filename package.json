@@ -17,6 +17,13 @@
     "polyfill"
   ],
   "author": "Chris Cowan <agentme49@gmail.com>",
+  "contributors": [{
+    "name": "Remy Sharp",
+    "email": "remy@leftlogic.com"
+  }, {
+    "name": "Jarrod Irwin",
+    "email": "jarrod.irwin@gmail.com"
+  }],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/AgentME/webstorage-polyfill/issues"
