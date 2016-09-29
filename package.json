@@ -4,7 +4,7 @@
   "description": "A browser polyfill for localStorage and sessionStorage",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -17,16 +17,22 @@
     "polyfill"
   ],
   "author": "Chris Cowan <agentme49@gmail.com>",
-  "contributors": [{
-    "name": "Remy Sharp",
-    "email": "remy@leftlogic.com"
-  }, {
-    "name": "Jarrod Irwin",
-    "email": "jarrod.irwin@gmail.com"
-  }],
+  "contributors": [
+    {
+      "name": "Remy Sharp",
+      "email": "remy@leftlogic.com"
+    },
+    {
+      "name": "Jarrod Irwin",
+      "email": "jarrod.irwin@gmail.com"
+    }
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/AgentME/webstorage-polyfill/issues"
   },
-  "homepage": "https://github.com/AgentME/webstorage-polyfill"
+  "homepage": "https://github.com/AgentME/webstorage-polyfill",
+  "devDependencies": {
+    "mocha": "^3.1.0"
+  }
 }

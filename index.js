@@ -4,8 +4,8 @@
     // Test webstorage existence.
     if (!window.localStorage || !window.sessionStorage) throw "exception";
     // Test webstorage accessibility - Needed for Safari private browsing.
-    localStorage.setItem('storage_test', 1);
-    localStorage.removeItem('storage_test');
+    window.localStorage.setItem('storage_test', 1);
+    window.localStorage.removeItem('storage_test');
   } catch (e) {
     (function() {
       function createCookie(name, value, days) {
