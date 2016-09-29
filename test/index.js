@@ -39,6 +39,12 @@ describe('webstorage-polyfill', function() {
     execute();
     assert.strictEqual(typeof window.localStorage, 'object');
     assert.strictEqual(typeof window.sessionStorage, 'object');
+
+    assert.strictEqual(window.localStorage.POLYFILLED, true);
+
+    assert.strictEqual(window.localStorage.getItem('a'), null);
+    window.localStorage.setItem('a', 'abc');
+    assert.strictEqual(window.localStorage.getItem('a'), 'abc');
   });
 
   it('does not replace in Safari private mode', function() {
