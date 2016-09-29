@@ -40,4 +40,29 @@ describe('webstorage-polyfill', function() {
     assert.strictEqual(typeof window.localStorage, 'object');
     assert.strictEqual(typeof window.sessionStorage, 'object');
   });
+
+  it('does not replace in Safari private mode', function() {
+    // In Safari private mode, setItem throws an exception always, and the
+    // localStorage and sessionStorage properties of window aren't writable.
+    var privateStorage = {
+      getItem() {},
+      setItem() {
+        throw Object.assign(new Error('QuotaExceededError: DOM Exception 22'), {
+          code: 22
+        });
+      },
+      removeItem() {}
+    };
+    Object.defineProperty(window, 'localStorage', {
+      value: privateStorage,
+      writable: false, enumerable: true, configurable: false
+    });
+    Object.defineProperty(window, 'sessionStorage', {
+      value: privateStorage,
+      writable: false, enumerable: true, configurable: false
+    });
+    execute();
+    assert.strictEqual(window.localStorage, privateStorage);
+    assert.strictEqual(window.sessionStorage, privateStorage);
+  });
 });
