@@ -51,13 +51,17 @@ describe('webstorage-polyfill', function() {
     // In Safari private mode, setItem throws an exception always, and the
     // localStorage and sessionStorage properties of window aren't writable.
     var privateStorage = {
-      getItem() {},
-      setItem() {
-        throw Object.assign(new Error('QuotaExceededError: DOM Exception 22'), {
-          code: 22
-        });
-      },
-      removeItem() {}
+      __proto__: {
+        getItem() {
+          return null;
+        },
+        setItem() {
+          throw Object.assign(new Error('QuotaExceededError: DOM Exception 22'), {
+            code: 22
+          });
+        },
+        removeItem() {}
+      }
     };
     Object.defineProperty(window, 'localStorage', {
       value: privateStorage,
@@ -67,8 +71,20 @@ describe('webstorage-polyfill', function() {
       value: privateStorage,
       writable: false, enumerable: true, configurable: false
     });
+
+    assert.strictEqual(window.localStorage.getItem('a'), null);
+    assert.throws(function() {
+      window.localStorage.setItem('a', 'def');
+    });
+
     execute();
     assert.strictEqual(window.localStorage, privateStorage);
     assert.strictEqual(window.sessionStorage, privateStorage);
+
+    assert.strictEqual(window.localStorage.POLYFILLED, true);
+
+    assert.strictEqual(window.localStorage.getItem('a'), null);
+    window.localStorage.setItem('a', 'abc');
+    assert.strictEqual(window.localStorage.getItem('a'), 'abc');
   });
 });
