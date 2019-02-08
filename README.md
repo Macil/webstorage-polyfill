@@ -1,6 +1,6 @@
 # webstorage-polyfill
 
-[![Circle CI](https://circleci.com/gh/AgentME/webstorage-polyfill.svg?style=shield)](https://circleci.com/gh/AgentME/webstorage-polyfill)
+[![Circle CI](https://circleci.com/gh/Macil/webstorage-polyfill.svg?style=shield)](https://circleci.com/gh/Macil/webstorage-polyfill)
 [![npm version](https://badge.fury.io/js/webstorage-polyfill.svg)](https://badge.fury.io/js/webstorage-polyfill)
 
 This is a cookie-based polyfill for localStorage and sessionStorage for
